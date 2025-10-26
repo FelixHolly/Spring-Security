@@ -1,0 +1,45 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Shell scripts should use LF
+*.sh text eol=lf
+/mvnw text eol=lf
+
+# Windows scripts should use CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Java sources
+*.java text diff=java
+*.kt text diff=kotlin
+*.gradle text diff=java
+*.gradle.kts text diff=kotlin
+
+# Config files
+*.properties text
+*.yml text
+*.yaml text
+*.xml text
+*.json text
+*.sql text
+
+# Documentation
+*.md text
+*.txt text
+
+# Binary files
+*.jar binary
+*.war binary
+*.ear binary
+*.zip binary
+*.tar.gz binary
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.mov binary
+*.mp4 binary
+*.mp3 binary
+*.db binary

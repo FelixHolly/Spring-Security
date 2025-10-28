@@ -7,9 +7,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SimpleController {
 
-    @GetMapping
+    @GetMapping("/hello")
     public ResponseEntity<String> getHello() {
         return ResponseEntity.ok("Hello");
+    }
+
+    @GetMapping("/bye")
+    public ResponseEntity<String> getBye() {
+        return ResponseEntity.ok("Bye");
     }
 
 }

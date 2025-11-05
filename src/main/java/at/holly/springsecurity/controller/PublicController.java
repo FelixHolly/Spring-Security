@@ -1,28 +1,26 @@
 package at.holly.springsecurity.controller;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class SimpleController {
+public class PublicController {
 
-    @GetMapping("/hello")
-    public ResponseEntity<String> getHello() {
+    @GetMapping("/public-get")
+    public ResponseEntity<String> get() {
         return ResponseEntity.ok("Hello");
     }
 
-    @PostMapping("/bye")
-    public ResponseEntity<String> getBye() {
+    @PostMapping("/public-post")
+    public ResponseEntity<String> post() {
         return ResponseEntity.ok("Bye");
     }
 
-    @PutMapping("/me-save")
-    public String currentUser(Authentication authentication) {
-        return "Hello, " + authentication.getName();
+    @PutMapping("/public-put")
+    public ResponseEntity<String> put() {
+        return ResponseEntity.ok("Bye");
     }
-
 }

@@ -8,19 +8,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SecuredController {
 
-    @GetMapping("/secure")
-    public String secure() {
-        return "Secure";
+    @GetMapping("/secure-get")
+    public String get() {
+        return "GET";
     }
 
-    @PutMapping("/admin")
-    public String admin() {
-        return "Admin";
+    @PutMapping("/secure-put")
+    public String put() {
+        return "PUT";
     }
 
-    @PostMapping("/me")
-    public String me() {
-        return "Me";
+    @PostMapping("/secure-post")
+    public String post() {
+        return "POST";
     }
 
 }

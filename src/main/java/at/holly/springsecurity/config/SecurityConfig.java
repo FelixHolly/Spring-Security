@@ -26,8 +26,8 @@ public class SecurityConfig {
                 .sessionManagement(sessionManagement -> sessionManagement.sessionCreationPolicy(SessionCreationPolicy.ALWAYS))
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(PathRequest.toH2Console()).permitAll()
-                        .requestMatchers("/hello", "/bye", "/me-save", "/register").permitAll()
-                        .requestMatchers("/me", "/admin", "/secure").authenticated()
+                        .requestMatchers("/public-get", "/public-post", "/public-put", "/register").permitAll()
+                        .requestMatchers("/secure-get", "/secure-post", "/secure-put").authenticated()
                 )
                 .headers(headers -> headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable))  // Allows access to /h2-console frameset/frame pages
                 .formLogin(withDefaults())

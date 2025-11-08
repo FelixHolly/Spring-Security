@@ -20,7 +20,6 @@ public class AppUserController {
         return "Hello, " + authentication.getName();
     }
 
-    //create user endpoint
     @PostMapping("/register")
     public String user(@RequestBody AppUserDto user) {
         return appUserService.createUser(user);

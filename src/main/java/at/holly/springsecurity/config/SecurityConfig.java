@@ -32,8 +32,8 @@ public class SecurityConfig {
                                 .csrfTokenRequestHandler(new CsrfTokenRequestAttributeHandler())
                 )
                 .addFilterAfter(new CsrfCookieFilter(), BasicAuthenticationFilter.class)
-                .addFilterBefore(new RequestValidationFilter(), BasicAuthenticationFilter.class)
                 .addFilterAfter(new AuthorityLoggingFilter(), BasicAuthenticationFilter.class)
+                .addFilterBefore(new RequestValidationFilter(), BasicAuthenticationFilter.class)
                 .securityContext(securityContext -> securityContext.requireExplicitSave(false))
                 .sessionManagement(sessionManagement -> sessionManagement.sessionCreationPolicy(SessionCreationPolicy.ALWAYS))
                 .authorizeHttpRequests(authorize -> authorize

@@ -1,5 +1,6 @@
 package at.holly.springsecurity.config;
 
+import at.holly.springsecurity.filter.AuthorityLoggingFilter;
 import at.holly.springsecurity.filter.CsrfCookieFilter;
 import at.holly.springsecurity.filter.RequestValidationFilter;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
@@ -32,6 +33,7 @@ public class SecurityConfig {
                 )
                 .addFilterAfter(new CsrfCookieFilter(), BasicAuthenticationFilter.class)
                 .addFilterBefore(new RequestValidationFilter(), BasicAuthenticationFilter.class)
+                .addFilterAfter(new AuthorityLoggingFilter(), BasicAuthenticationFilter.class)
                 .securityContext(securityContext -> securityContext.requireExplicitSave(false))
                 .sessionManagement(sessionManagement -> sessionManagement.sessionCreationPolicy(SessionCreationPolicy.ALWAYS))
                 .authorizeHttpRequests(authorize -> authorize

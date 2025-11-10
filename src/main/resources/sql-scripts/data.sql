@@ -4,6 +4,7 @@
 INSERT INTO users (username, password) VALUES
                                            ('user',  '{noop}password'),
                                            ('admin', '{noop}password'),
+                                           ('test', '{noop}password'),
                                            ('me',    '{noop}password');
 
 -- ====================

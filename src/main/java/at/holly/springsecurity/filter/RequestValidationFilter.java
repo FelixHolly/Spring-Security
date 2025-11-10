@@ -34,6 +34,7 @@ public class RequestValidationFilter extends OncePerRequestFilter {
 
                     if(username.toLowerCase().contains("test")){
                         response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+                        return;  // Stop the filter chain - request will not proceed
                     }
                 } catch (Exception e) {
                     throw new ServletException("Invalid Authorization header");

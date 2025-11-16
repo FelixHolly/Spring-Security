@@ -50,7 +50,6 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- Optional: JJWT (some courses use it directly for custom JWT creation/parsing) -->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt-api</artifactId>

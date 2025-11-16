@@ -1,12 +1,22 @@
 package at.holly.springsecurity.model;
 
+import lombok.Getter;
+
+import java.util.Set;
+
+@Getter
 public enum Role {
 
-    USER,
-    ADMIN;
+    USER(Set.of(Authority.SECURE_READ)),
+    ADMIN(Set.of(Authority.SECURE_READ, Authority.SECURE_WRITE, Authority.SECURE_UPDATE));
 
-    public String getAuthority() {
-        return "ROLE_" + this.name();
+    private final Set<Authority> authorities;
+
+    Role(Set<Authority> authorities) {
+        this.authorities = authorities;
     }
 
+    public String getRoleName() {
+        return "ROLE_" + name();
+    }
 }

@@ -39,7 +39,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(PathRequest.toH2Console()).permitAll()
                         .requestMatchers("/public-get", "/public-post", "/public-put", "/register").permitAll()
-                        .requestMatchers("/secure-get", "/secure-post", "/secure-put", "/admin").authenticated()
+                        .requestMatchers("/secure-get", "/secure-post", "/secure-put").authenticated()
+                        .requestMatchers("/admin").hasRole("ADMIN")
                 )
                 .headers(headers -> headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable))  // Allows access to /h2-console frameset/frame pages
                 .formLogin(withDefaults())
